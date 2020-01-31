@@ -4,6 +4,7 @@ body {
   background-image: url(https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif);
   background-attachment: fixed;
 }
+
 .btn {
   display: inline-block;
   margin-bottom: 0;

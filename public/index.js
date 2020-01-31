@@ -71,6 +71,11 @@ let app = new Vue({
       } else {
         return false;
       }
+    },
+    tweetScore() {
+      document.getElementById(
+        "tweet"
+      ).href = `https://twitter.com/intent/tweet?text=I scored a big phat ${this.$data.score} points. Try your luck on https://whack-a-key.herokuapp.com/`;
     }
   },
   data: {

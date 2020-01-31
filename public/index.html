@@ -83,13 +83,15 @@
             <button class="btn btn-primary btn-lg" @click="startGame()">
               TRY AGAIN !
             </button>
-            <a
-              class="twitter-share-button"
-              style="padding-left: 2em;"
-              href="https://twitter.com/intent/tweet?text=I scored {{ score }} points"
+            &nbsp;
+            <button
+              id="tweet"
+              style="padding-left: 1em;"
+              class="btn btn-primary btn-lg"
+              @click="tweetScore()"
             >
-              Tweet</a
-            >
+              Tweet
+            </button>
           </span>
         </div>
       </transition>
