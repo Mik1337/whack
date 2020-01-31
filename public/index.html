@@ -10,6 +10,21 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- google analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-136836752-5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-136836752-5");
+    </script>
   </head>
   <body>
     <div id="app" style="padding-left: 1em; padding-right: 1em;">
@@ -97,13 +112,10 @@
       </transition>
     </div>
     <div style="padding-top: 2em;">
-      <a
-        target="_blank"
-        href="https://twitter.com/namikaze_mik"
-      >
+      <a target="_blank" href="https://twitter.com/namikaze_mik">
+        @namikaze_mik
+      </a>
     </div>
-      @namikaze_mik
-    </a>
     <!-- load custom js at end of page for speeeeeed -->
     <script src="index.js"></script>
   </body>
