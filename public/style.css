@@ -5,6 +5,10 @@ body {
   background-attachment: fixed;
 }
 
+a {
+  color: hotpink;
+}
+
 .btn {
   display: inline-block;
   margin-bottom: 0;
