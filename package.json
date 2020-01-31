@@ -1,0 +1,24 @@
+{
+  "name": "whack-a-key",
+  "version": "0.0.1",
+  "description": "what a key",
+  "main": "index.js",
+  "author": "Mik",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js"
+  },
+  "presets": [
+    "env",
+    "stage-3"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "nodemon": "^1.18.6"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

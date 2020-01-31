@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app" style="padding: 1em">
+      <div
+        class="flex-with-space bg-mik"
+        style="padding-left: 1em; padding-right: 1em;"
+        name="title bar"
+        key="1"
+      >
+        <h1 class="colourmod smol">whack a key</h1>
+        <h1 class="right smol" name="score">score {{ score }}</h1>
+      </div>
+      <br />
+      <transition
+        name="custom-classes-transition"
+        enter-active-class="animated flash"
+      >
+        <div
+          v-if="gameState == 'inPlay'"
+          class="vertical-center"
+          name="game body"
+          key="2"
+        >
+          <p class="colourmod bigbig" @click="checkKeyPress('click')">
+            {{ message }}
+          </p>
+          <div id="myProgress">
+            <div id="myBar"></div>
+          </div>
+        </div>
+      </transition>
+      <transition
+        name="custom-classes-transition"
+        enter-active-class="animated tada"
+      >
+        <div
+          v-if="!gameState"
+          class="colourmod bg-mik vertical-center"
+          name="start game"
+          key="3"
+        >
+          <p class="big">Whack the Keys</p>
+          <p class="big">Spare the Numbers</p>
+          <button class="btn btn-primary btn-lg" @click="startGame()">
+            PLAY !
+          </button>
+        </div>
+      </transition>
+      <transition
+        name="custom-classes-transition"
+        enter-active-class="animated tada"
+      >
+        <div
+          v-if="gameState == 'over'"
+          class="colourmod bg-mik vertical-center"
+          name="game over"
+          key="4"
+        >
+          <p class="big">Your scored a solid big phat</p>
+          <p class="big">>> {{ score }} <<</p>
+          <p class="big" v-if="!isNaN(message)">
+            omg spare the number, not whack it
+          </p>
+          <p class="big" v-else-if="lastKey === 'take forver'">
+            whack "{{ message }}", not {{ lastKey }} >~<
+          </p>
+          <p class="big" v-else>
+            You whacked the wrong key ma boi
+          </p>
+          <span class="flex-with-space">
+            <button class="btn btn-primary btn-lg" @click="startGame()">
+              TRY AGAIN !
+            </button>
+            <a
+              class="twitter-share-button"
+              style="padding-left: 2em;"
+              href="https://twitter.com/intent/tweet?text=I scored {{ score }} points"
+            >
+              Tweet</a
+            >
+          </span>
+        </div>
+      </transition>
+    </div>
+    <!-- load custom js at end of page for speeeeeed -->
+    <script src="index.js"></script>
+  </body>
+</html>
