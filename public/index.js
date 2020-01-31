@@ -43,6 +43,7 @@ let app = new Vue({
         this.$data.tryAgain.play();
         this.scoreUpdate(false);
       }
+      resetTimeBar();
     },
     wait() {
       this.$data.timer = setTimeout(() => {
@@ -104,12 +105,10 @@ document.onkeydown = e => {
     app.$data.keyPress.play();
     app.$data.keyPress.currentTime = 0;
     app.checkKeyPress(e.key);
-    resetTimeBar();
   } else if (e.which === 32) {
     app.$data.jump.play();
     app.$data.jump.currentTime = 0;
     app.checkKeyPress("space");
-    resetTimeBar();
   }
 };
 
