@@ -84,12 +84,12 @@
           name="game over"
           key="4"
         >
-          <p class="big">Your scored a solid big phat</p>
+          <p class="big">Your final score is a solid big phat</p>
           <p class="big" v-if="isMobile()">
-            >> {{ (score * multipler) }} <<
+            >> {{ (score ) }} <<
           </p>
           <p class="big" v-else>
-            >> {{ (score * multipler) }} <<
+            >> {{ (score ) }} <<
           </p>
           <p class="big" v-if="!isNaN(message)">
             omg spare the number, not whack it
@@ -105,14 +105,15 @@
               TRY AGAIN !
             </button>
             &nbsp;
-            <button
-              id="tweet"
-              style="padding-left: 1em;"
-              class="btn btn-primary btn-lg"
-              @click="tweetScore()"
-            >
-              Tweet
-            </button>
+            <a id="tweet" target="_blank" style="color: white;">
+              <button
+                style="padding-left: 1em;"
+                class="btn btn-primary btn-lg"
+                @click="tweetScore()"
+              >
+                Tweet
+              </button>
+            </a>
           </span>
         </div>
       </transition>

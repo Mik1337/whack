@@ -36,10 +36,10 @@ let app = new Vue({
           this.$data.multipler /
           1000}s linear infinite`;
         // animation: fill 3s linear infinite;
-        console.log({
-          multiplier: this.$data.multipler,
-          time: Math.floor(this.$data.time / this.$data.multipler)
-        });
+        // console.log({
+        //   multiplier: this.$data.multipler,
+        //   time: Math.floor(this.$data.time / this.$data.multipler)
+        // });
       }
     },
     checkKeyPress(key) {
@@ -85,9 +85,10 @@ let app = new Vue({
       }
     },
     tweetScore() {
-      document.getElementById(
+      let el = (document.getElementById(
         "tweet"
-      ).href = `https://twitter.com/intent/tweet?text=I scored a big phat ${this.$data.score} points. Try your luck on https://whack-a-key.herokuapp.com/`;
+      ).href = `https://twitter.com/intent/tweet?text=I scored a big phat ${this.$data.score} points. Try your luck on https://whack-a-key.herokuapp.com/`);
+      el.click();
     },
     gameOver(key) {
       this.$data.lastKey = key;
