@@ -23,22 +23,23 @@ let app = new Vue({
         this.$data.message = Math.random()
           .toString(36)
           .substr(2, 1);
+        // this.$data.message = 1;
         this.wait();
       } else if (!check) {
         this.$data.gameState = "over";
         this.withinTime();
       }
       if (!(this.$data.score % 100)) {
-        this.$data.multipler += 0.1;
+        this.$data.multipler += 0.5;
         document.getElementById("myBar").style.animation = `fill ${this.$data
-          .score /
+          .time /
           this.$data.multipler /
           1000}s linear infinite`;
         // animation: fill 3s linear infinite;
-        // console.log({
-        //   multiplier: this.$data.multipler,
-        //   time: Math.floor(this.$data.time / this.$data.multipler)
-        // });
+        console.log({
+          multiplier: this.$data.multipler,
+          time: Math.floor(this.$data.time / this.$data.multipler)
+        });
       }
     },
     checkKeyPress(key) {
