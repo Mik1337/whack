@@ -119,7 +119,7 @@ a {
 #myBar {
   width: 100%;
   height: 30px;
-  animation: fill 3s linear infinite;
+  animation: fill 5s linear infinite;
 }
 
 @keyframes fill {

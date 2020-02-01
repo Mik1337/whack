@@ -48,7 +48,7 @@
           name="game body"
           key="2"
         >
-          <p class="colourmod bigbig" @click="checkKeyPress('click')">
+          <p class="colourmod bigbig" id="hack" @click="checkKeyPress('click')">
             {{ message }}
           </p>
           <div id="myProgress">
@@ -84,7 +84,12 @@
           key="4"
         >
           <p class="big">Your scored a solid big phat</p>
-          <p class="big">>> {{ score }} <<</p>
+          <p class="big" v-if="isMobile()">
+            >> {{ (score * multipler }} <<
+          </p>
+          <p class="big" v-else>
+            >> {{ (score * multipler) }} <<
+          </p>
           <p class="big" v-if="!isNaN(message)">
             omg spare the number, not whack it
           </p>

@@ -28,6 +28,18 @@ let app = new Vue({
         this.$data.gameState = "over";
         this.withinTime();
       }
+      if (!(this.$data.score % 100)) {
+        this.$data.multipler += 0.1;
+        document.getElementById("myBar").style.animation = `fill ${this.$data
+          .score /
+          this.$data.multipler /
+          1000}s linear infinite`;
+        // animation: fill 3s linear infinite;
+        // console.log({
+        //   multiplier: this.$data.multipler,
+        //   time: Math.floor(this.$data.time / this.$data.multipler)
+        // });
+      }
     },
     checkKeyPress(key) {
       if (
@@ -51,12 +63,14 @@ let app = new Vue({
           this.withinTime();
           this.scoreUpdate(true);
         } else {
-          this.$data.gameState = "over";
-          stop(this.$data.adventureSound);
-          this.$data.tryAgain.play();
-          this.$data.lastKey = "take forver";
+          this.withinTime();
+          this.scoreUpdate(true);
+          // this.$data.gameState = "over";
+          // stop(this.$data.adventureSound);
+          // this.$data.tryAgain.play();
+          // this.$data.lastKey = "take forver";
         }
-      }, this.$data.time);
+      }, Math.floor(this.$data.time / this.$data.multipler));
     },
     withinTime() {
       clearInterval(this.$data.timer);
@@ -91,7 +105,7 @@ let app = new Vue({
     keyPress: new Audio("./assests/keypress.mp3"),
     tryAgain: new Audio("./assests/tryagain.mp3"),
     timer: null,
-    time: 3000,
+    time: 5000,
     score: 0
   }
 });
@@ -136,3 +150,6 @@ function resetTimeBar() {
   el.offsetHeight; /* trigger reflow */
   el.style.animation = null;
 }
+
+const random = () =>
+  "qwertyuiopasdfghjklzxcvbnm1234567890190"[Math.floor(Math.random() * 39)];
