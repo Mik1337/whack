@@ -4,6 +4,7 @@ let app = new Vue({
     startGame() {
       this.$data.gameState = "inPlay";
       this.$data.score = 0;
+      this.$data.multipler = 1;
       this.$data.lastKey = null;
       stop(this.$data.tryAgain);
       this.$data.adventureSound.addEventListener(
