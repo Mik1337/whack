@@ -63,12 +63,12 @@ let app = new Vue({
           this.withinTime();
           this.scoreUpdate(true);
         } else {
-          this.withinTime();
-          this.scoreUpdate(true);
-          // this.$data.gameState = "over";
-          // stop(this.$data.adventureSound);
-          // this.$data.tryAgain.play();
-          // this.$data.lastKey = "take forver";
+          // this.withinTime();
+          // this.scoreUpdate(true);
+          this.$data.gameState = "over";
+          stop(this.$data.adventureSound);
+          this.$data.tryAgain.play();
+          this.$data.lastKey = "take forver";
         }
       }, Math.floor(this.$data.time / this.$data.multipler));
     },
