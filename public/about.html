@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- google analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-136836752-5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-136836752-5");
+    </script>
+  </head>
+  <body name="about page body">
+    <div style="padding-left: 1em; padding-right: 1em;">
+      <div
+        class="flex-with-space bg-mik"
+        style="padding-left: 1em; padding-right: 1em;"
+        name="title bar"
+        key="1"
+      >
+        <h1 class="colourmod smol">whack a key</h1>
+      </div>
+      <br />
+      <div class="vertical-center" name="About page body">
+        <p class="colourmod smol" id="hack" @click="checkKeyPress('click')">
+          I don't know why I wrote this game, but when I started writing this, I
+          knew I was going to write it in <a href="vue.js">vue.js</a> because I
+          remembered playing game <a>notallmen.dev</a> by
+          <a>@controlshfti</a> who wrote her game in <a>vue.js</a>.
+        </p>
+        <p class="colourmod smol">
+          Game Sounds <br />
+          <a href="https://freesound.org/people/Njlewy/sounds/460504/">
+            Retro Adventure
+          </a>
+          <br />
+          <a href="https://freesound.org/people/Soundholder/sounds/425354/">
+            8bit Jump
+          </a>
+          <br />
+          <a href="https://freesound.org/people/B_Lamerichs/sounds/264057/">
+            Game Over
+          </a>
+          <br />
+          <a href="https://freesound.org/people/MATTIX/sounds/402067/">
+            Coin Pickup
+          </a>
+          <br />
+        </p>
+      </div>
+      <div class="flex-with-space" style="padding-top: 2.5em;">
+        <a target="_blank" href="https://twitter.com/namikaze_mik">
+          @namikaze_mik
+        </a>
+        <a href="/" style="right: 0;">@home</a>
+      </div>
+    </div>
+    <!-- load custom js at end of page for speeeeeed -->
+    <script src="index.js"></script>
+  </body>
+</html>

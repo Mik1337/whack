@@ -51,10 +51,7 @@ let app = new Vue({
         this.withinTime();
         this.scoreUpdate(true);
       } else {
-        this.$data.lastKey = key;
-        stop(this.$data.adventureSound);
-        this.$data.tryAgain.play();
-        this.scoreUpdate(false);
+        this.gameOver(key);
       }
       resetTimeBar();
     },
@@ -91,6 +88,12 @@ let app = new Vue({
       document.getElementById(
         "tweet"
       ).href = `https://twitter.com/intent/tweet?text=I scored a big phat ${this.$data.score} points. Try your luck on https://whack-a-key.herokuapp.com/`;
+    },
+    gameOver(key) {
+      this.$data.lastKey = key;
+      stop(this.$data.adventureSound);
+      this.$data.tryAgain.play();
+      this.scoreUpdate(false);
     }
   },
   data: {
@@ -129,6 +132,8 @@ document.onkeydown = e => {
     app.$data.jump.play();
     app.$data.jump.currentTime = 0;
     app.checkKeyPress("space");
+  } else if ("1234567890".includes(e.key)) {
+    app.gameOver("whack");
   }
 };
 
