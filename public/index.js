@@ -145,7 +145,7 @@ function resetTimeBar() {
   let el = document.getElementById("myBar");
   el.style.animation = "none";
   el.offsetHeight; /* trigger reflow */
-  if (!(app.$data.score % 10)) {
+  if (!(app.$data.score % 50)) {
     app.$data.multipler += 0.5;
     app.$data.time = app.$data.time / app.$data.multipler;
   }
