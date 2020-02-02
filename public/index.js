@@ -30,18 +30,6 @@ let app = new Vue({
         this.$data.gameState = "over";
         this.withinTime();
       }
-      if (!(this.$data.score % 100)) {
-        this.$data.multipler += 0.5;
-        document.getElementById("myBar").style.animation = `fill ${this.$data
-          .time /
-          this.$data.multipler /
-          1000}s linear infinite`;
-        // animation: fill 3s linear infinite;
-        // console.log({
-        //   multiplier: this.$data.multipler,
-        //   time: Math.floor(this.$data.time / this.$data.multipler)
-        // });
-      }
     },
     checkKeyPress(key) {
       if (
@@ -69,7 +57,7 @@ let app = new Vue({
           this.$data.tryAgain.play();
           this.$data.lastKey = "take forver";
         }
-      }, Math.floor(this.$data.time / this.$data.multipler));
+      }, this.$data.time);
     },
     withinTime() {
       clearInterval(this.$data.timer);
@@ -156,7 +144,11 @@ function resetTimeBar() {
   let el = document.getElementById("myBar");
   el.style.animation = "none";
   el.offsetHeight; /* trigger reflow */
-  el.style.animation = null;
+  if (!(app.$data.score % 10)) {
+    app.$data.multipler += 0.5;
+    app.$data.time = app.$data.time / app.$data.multipler;
+  }
+  el.style.animation = `fill ${app.$data.time / 1000}s linear infinite`;
 }
 
 const random = () =>
