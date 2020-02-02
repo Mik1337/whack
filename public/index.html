@@ -82,19 +82,19 @@
         >
           <p class="big">Your final score is a solid big phat</p>
           <p class="big" v-if="isMobile()">
-            >> {{ (score ) }} <<
+            >> {{ score }} <<
           </p>
           <p class="big" v-else>
-            >> {{ (score ) }} <<
+            >> {{ score }} <<
           </p>
           <p class="big" v-if="!isNaN(message)">
-            omg spare the number, not whack it
+            spare the number, not whack it X.X
           </p>
           <p class="big" v-else-if="lastKey === 'take forver'">
             whack "{{ message }}", not {{ lastKey }} >~<
           </p>
           <p class="big" v-else>
-            You whacked the wrong key ma boi
+            You whacked the wrong key ~.~
           </p>
           <span class="flex-with-space">
             <button class="btn btn-primary btn-lg" @click="startGame()">
