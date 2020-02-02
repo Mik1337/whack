@@ -33,7 +33,6 @@
         class="flex-with-space bg-mik"
         style="padding-left: 1em; padding-right: 1em;"
         name="title bar"
-        key="1"
       >
         <h1 class="colourmod smol">whack a key</h1>
         <h1 class="right smol" name="score">score {{ score }}</h1>
@@ -47,7 +46,6 @@
           v-if="gameState == 'inPlay'"
           class="vertical-center"
           name="game body"
-          key="2"
         >
           <p class="colourmod bigbig" id="hack" @click="checkKeyPress('click')">
             {{ message }}
@@ -65,7 +63,6 @@
           v-if="!gameState"
           class="colourmod bg-mik vertical-center"
           name="start game"
-          key="3"
         >
           <p class="big">Whack the Keys</p>
           <p class="big">Spare the Numbers</p>
@@ -82,7 +79,6 @@
           v-if="gameState == 'over'"
           class="colourmod bg-mik vertical-center"
           name="game over"
-          key="4"
         >
           <p class="big">Your final score is a solid big phat</p>
           <p class="big" v-if="isMobile()">
@@ -122,7 +118,7 @@
       <a target="_blank" href="https://twitter.com/namikaze_mik">
         @namikaze_mik
       </a>
-      <a href="/about.html" style="right: 0;">@about</a>
+      <a href="/about.html" style="right: 0;">[about]</a>
     </div>
 
     <!-- load custom js at end of page for speeeeeed -->
