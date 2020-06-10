@@ -1,6 +1,6 @@
 leaders = {
   fir: { name: "N3ha", score: 905 },
-  sec: { name: "Myoshi", score: 336 },
+  sec: { name: "Mik", score: 336 },
   thi: { name: "N3ha", score: 334 },
   fou: { name: "Gunner", score: 229 },
   fif: { name: "N3ha", score: 224 },
