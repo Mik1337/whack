@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8" />
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="https://i.imgur.com/3p80YDX.png"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <!-- production vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-136836752-5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-136836752-5");
+    </script>
+  </head>
+  <body name="hall of fame, high score, leader board">
+    <div style="padding-left: 1em; padding-right: 1em;">
+      <div
+        class="flex-with-space bg-mik"
+        style="padding-left: 1em; padding-right: 1em;"
+        name="title bar"
+      >
+        <h1 class="colourmod smol">whack a key</h1>
+      </div>
+      <br />
+      <div class="bg-mik vertical-center" id="app" name="About page body">
+        <p class="colourmod big">High Scores</p>
+        <table>
+          <tr v-for="leader in leaders">
+            <!-- <td class="colourmod smol">{{ leaders }}</td> -->
+            <td class="colourmod smol">{{ leader.name }}</td>
+            <td class="colourmod smol">{{ leader.score }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="flex-with-space" style="padding-top: 2.5em;">
+        <a href="/" style="left: 0;">[Home]</a>
+        <a href="/leaderboard.html" style="left: 0;">Leader Board</a>
+        <a
+          target="_blank"
+          href="https://twitter.com/cosmik_trash"
+          style="right: 0;"
+        >
+          @mik
+        </a>
+      </div>
+    </div>
+
+    <!-- load custom js at end of page for speeeeeed -->
+    <script src="./assests/lb.js"></script>
+    <script src="leaderboard.js"></script>
+  </body>
+</html>

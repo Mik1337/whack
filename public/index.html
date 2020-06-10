@@ -98,10 +98,21 @@
           <p class="big" v-else-if="lastKey === 'take forver'">
             whack "{{ message }}", not {{ lastKey }} >~<
           </p>
+<!--          <p class="big" v-else-if="goodScore()">
+            Enter Name for Hall of Fame
+          </p>
+-->
           <p class="big" v-else>
             You whacked the wrong key ~.~
           </p>
-          <span class="flex-with-space">
+<!--	  
+          <span v-if="goodScore()">
+            <button class="btn btn-primary btn-lg" @click="enterScore()">
+              <input v-model="name" />
+            </button>
+          </span>
+-->	  
+          <span class="flex-with-space" v-else>
             <button class="btn btn-primary btn-lg" @click="startGame()">
               TRY AGAIN !
             </button>
@@ -121,12 +132,14 @@
     </div>
     <div class="flex-with-space" style="padding-top: 2.5em;">
       <a target="_blank" href="https://twitter.com/cosmik_trash">
-        @cosmik_trash
+        @mik
       </a>
+      <a href="/leaderboard.html" style="right: 0;">Leader Board</a>
       <a href="/about.html" style="right: 0;">[about]</a>
     </div>
 
     <!-- load custom js at end of page for speeeeeed -->
+    <script src="./assests/lb.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

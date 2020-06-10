@@ -10,7 +10,7 @@ let app = new Vue({
       stop(this.$data.tryAgain);
       this.$data.adventureSound.addEventListener(
         "ended",
-        function() {
+        function () {
           this.currentTime = 0;
           this.play();
         },
@@ -22,9 +22,7 @@ let app = new Vue({
     scoreUpdate(check) {
       if (check) {
         this.$data.score += 1;
-        this.$data.message = Math.random()
-          .toString(36)
-          .substr(2, 1);
+        this.$data.message = Math.random().toString(36).substr(2, 1);
         // this.$data.message = 1;
         this.wait();
       } else if (!check) {
@@ -85,13 +83,26 @@ let app = new Vue({
       stop(this.$data.adventureSound);
       this.$data.tryAgain.play();
       this.scoreUpdate(false);
-    }
+    },
+    goodScore() {
+      if (
+        Object.values(leaders).filter((i) => i.score > this.$data.score) !== []
+      ) {
+        return true;
+      }
+      return false;
+    },
+    writeScores() {},
+    enterScore(name) {
+      this.$data.score > leaders.score;
+      leaders.score = this.$data.score;
+      writeScores(leaders);
+    },
   },
   data: {
+    name: "Ochincin Bakemono",
     gameState: false,
-    message: Math.random()
-      .toString(36)
-      .substr(2, 1),
+    message: Math.random().toString(36).substr(2, 1),
     lastKey: null,
     multipler: 1,
     startSound: new Audio("./assests/start.mp3"),
@@ -101,11 +112,11 @@ let app = new Vue({
     tryAgain: new Audio("./assests/tryagain.mp3"),
     timer: null,
     time: 5000,
-    score: 0
-  }
+    score: 0,
+  },
 });
 
-document.onkeydown = e => {
+document.onkeydown = (e) => {
   e = e || window.event;
   if (
     e.which === 32 &&
@@ -150,6 +161,10 @@ function resetTimeBar() {
     app.$data.time = app.$data.time / app.$data.multipler;
   }
   el.style.animation = `fill ${app.$data.time / 1000}s linear infinite`;
+}
+
+function HighSkore() {
+  let el = document.getElementById("highSkore");
 }
 
 const random = () =>
