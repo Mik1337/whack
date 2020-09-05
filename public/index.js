@@ -92,7 +92,7 @@ let app = new Vue({
       }
       return false;
     },
-    writeScores() {},
+    writeScores() {}, 
     enterScore(name) {
       this.$data.score > leaders.score;
       leaders.score = this.$data.score;
