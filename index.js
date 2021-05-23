@@ -12,10 +12,12 @@ let app = new Vue({
         "ended",
         function () {
           this.currentTime = 0;
+          this.volume = 0.1;
           this.play();
         },
         false
       );
+      this.$data.adventureSound.volume = 0.1;
       this.$data.adventureSound.play();
       this.wait();
     },
@@ -53,6 +55,7 @@ let app = new Vue({
           // this.scoreUpdate(true);
           this.$data.gameState = "over";
           stop(this.$data.adventureSound);
+          this.$data.tryAgain.volume = 0.1;
           this.$data.tryAgain.play();
           this.$data.lastKey = "take forver";
         }
@@ -81,6 +84,7 @@ let app = new Vue({
     gameOver(key) {
       this.$data.lastKey = key;
       stop(this.$data.adventureSound);
+      this.$data.tryAgain.volume = 0.1;
       this.$data.tryAgain.play();
       this.scoreUpdate(false);
     },
@@ -92,7 +96,7 @@ let app = new Vue({
       }
       return false;
     },
-    writeScores() {}, 
+    writeScores() {},
     enterScore(name) {
       this.$data.score > leaders.score;
       leaders.score = this.$data.score;
@@ -127,10 +131,12 @@ document.onkeydown = (e) => {
     "qwertyuiopasdfghjklzxcvbnm".includes(e.key) &&
     app.$data.gameState !== "over"
   ) {
+    app.$data.keyPress.volume = 0.1;
     app.$data.keyPress.play();
     app.$data.keyPress.currentTime = 0;
     app.checkKeyPress(e.key);
   } else if (e.which === 32) {
+    app.$data.jump.volume = 0.1;
     app.$data.jump.play();
     app.$data.jump.currentTime = 0;
     app.checkKeyPress("space");
@@ -141,6 +147,7 @@ document.onkeydown = (e) => {
 
 document.ontouchstart = () => {
   if (app.$data.gameState === "inPlay" && isNaN(app.$data.message)) {
+    app.$data.keyPress.volume = 0.1;
     app.$data.keyPress.play();
     app.$data.keyPress.currentTime = 0;
   }

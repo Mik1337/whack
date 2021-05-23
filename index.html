@@ -14,6 +14,7 @@
       rel="stylesheet"
       type="text/css"
     />
+    <!-- nes.css -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
     <!-- production vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
@@ -33,10 +34,10 @@
     </script>
   </head>
   <body>
-    <div id="app" style="padding-left: 1em; padding-right: 1em;">
+    <div id="app" style="padding-left: 1em; padding-right: 1em">
       <div
         class="flex-with-space bg-mik"
-        style="padding-left: 1em; padding-right: 1em;"
+        style="padding-left: 1em; padding-right: 1em"
         name="title bar"
       >
         <h1 class="colourmod smol">whack a key</h1>
@@ -86,40 +87,34 @@
           name="game over"
         >
           <p class="big">Your final score is a solid big phat</p>
-          <p class="big" v-if="isMobile()">
-            >> {{ score }} <<
-          </p>
-          <p class="big" v-else>
-            >> {{ score }} <<
-          </p>
+          <p class="big" v-if="isMobile()">>> {{ score }} <<</p>
+          <p class="big" v-else>>> {{ score }} <<</p>
           <p class="big" v-if="!isNaN(message)">
             spare the number, not whack it X.X
           </p>
           <p class="big" v-else-if="lastKey === 'take forver'">
             whack "{{ message }}", not {{ lastKey }} >~<
           </p>
-<!--          <p class="big" v-else-if="goodScore()">
+          <!--          <p class="big" v-else-if="goodScore()">
             Enter Name for Hall of Fame
           </p>
 -->
-          <p class="big" v-else>
-            You whacked the wrong key ~.~
-          </p>
-<!--	  
+          <p class="big" v-else>You whacked the wrong key ~.~</p>
+          <!--	  
           <span v-if="goodScore()">
             <button class="btn btn-primary btn-lg" @click="enterScore()">
               <input v-model="name" />
             </button>
           </span>
--->	  
+-->
           <span class="flex-with-space" v-else>
             <button class="btn btn-primary btn-lg" @click="startGame()">
               TRY AGAIN !
             </button>
             &nbsp;
-            <a id="tweet" target="_blank" style="color: white;">
+            <a id="tweet" target="_blank" style="color: white">
               <button
-                style="padding-left: 1em;"
+                style="padding-left: 1em"
                 class="btn btn-primary btn-lg"
                 @click="tweetScore()"
               >
@@ -130,12 +125,10 @@
         </div>
       </transition>
     </div>
-    <div class="flex-with-space" style="padding-top: 2.5em;">
-      <a target="_blank" href="https://twitter.com/GreaterMik">
-        @mik
-      </a>
-      <a href="/leaderboard.html" style="right: 0;">Leader Board</a>
-      <a href="/about.html" style="right: 0;">[about]</a>
+    <div class="flex-with-space" style="padding-top: 2.5em">
+      <a target="_blank" href="https://twitter.com/AvocadoMik"> @mik </a>
+      <a href="/leaderboard.html" style="right: 0">Leader Board</a>
+      <a href="/about.html" style="right: 0">[about]</a>
     </div>
 
     <!-- load custom js at end of page for speeeeeed -->
